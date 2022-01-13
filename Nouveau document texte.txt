@@ -1,0 +1,54 @@
+<ion-content class="ion-padding"> 
+  <h1>Login Frist</h1>
+  <br>
+    <ion-item>
+      <ion-label position="floating">Your Email</ion-label>
+      <ion-input [(ngModel)]="email" type="email" autocomplete="email" required></ion-input>
+    </ion-item> <br>
+    <ion-item>
+      <ion-label position="floating">Your Password</ion-label>
+      <ion-input [(ngModel)]="password"  type="password"  autocomplete="current-password" required></ion-input>
+    </ion-item>
+    <br> <br>
+    <ion-button expand="block" class="ion-margin-vertical" (click)="login()">LOGIN</ion-button>
+   
+    <ion-button expand="block"  (click)="register()">Sign-up</ion-button>
+     
+    <div class="ion-text-center">
+      Don't have an account? <span routerLink="/register" routerDirection="forward">Sign-up</span>
+    </div>
+    
+  </ion-content>
+
+login
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title  >Welcome To Your Application</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-image no-scroll" padding> 
+  <h3 class="center" >Login Frist</h3>
+  <br>
+    <ion-item>
+      <ion-label color="secondary" position="floating">Your Email</ion-label>
+      <ion-input [(ngModel)]="email" type="email" autocomplete="email" required></ion-input>
+    </ion-item> <br>
+    <ion-item>
+      <ion-label color="secondary" position="floating">Your Password</ion-label>
+      <ion-input [(ngModel)]="password"  type="password"  autocomplete="current-password" required></ion-input>
+    </ion-item>
+    <br> <br>
+    <ion-button expand="block" class="ion-margin-vertical" (click)="login()">LOGIN</ion-button>
+   
+    <ion-button expand="block"  (click)="register()">Sign-up</ion-button> 
+    
+    <div class="ion-text-center">
+      Don't have an account? <span routerLink="/register" routerDirection="forward">Sign-up</span>
+    </div>
+    
+  </ion-content>

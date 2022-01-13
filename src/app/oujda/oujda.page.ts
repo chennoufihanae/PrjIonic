@@ -25,33 +25,39 @@ export class OujdaPage implements OnInit {
 
   async addResv(){
     const alert= await this.alertCtrl.create({
-      header:'Ajouter une reservation',
+      header:'Make a Reservation',
       inputs:[
         {
           name:'nom',
-          placeholder:'tapez votre nom',
+          placeholder:'Your First Name',
           type:'text',
           
         },
         {
           name:'prenom',
-          placeholder:'tapez votre prenom',
+          placeholder:'Your Last Name',
           type:'text'
         },
         {
           name:'email',
-          placeholder:'tapez votre email',
+          placeholder:'Your E-mail',
           type:'email'
         },
         {
           name:'tel',
-          placeholder:'tapez votre telephone',
-          type:'number'
+          placeholder:'Your Number Phone',
+          type:'tel',
+          attributes: {
+            maxlength: 10
+            
+          }
         },
         {
           name:'cin',
-          placeholder:'tapez votre cin',
-          type:'number'
+          placeholder:'Your CIN',
+          type:'number',
+          min: 3,
+          max: 10
         },
         {
           name:'ville',
@@ -62,17 +68,19 @@ export class OujdaPage implements OnInit {
         },
         {
           name:'date',
-          placeholder:'tapez votre date',
-          type:'date'
+          placeholder:'Your Date',
+          type:'date',
+          min: '2022-01-13',
+          max: '2022-01-30'
         },
       ],
       buttons:[
         {
-          text:'Annuler',
+          text:'Cancel',
           role:'cancel'
         },
         {
-          text:'Ajouter',
+          text:'Add',
           handler:(res)=>{
             this.dataService.addResv({
               nom: res.nom,

@@ -8,12 +8,16 @@ import { MoroccanCitiesPageRoutingModule } from './moroccan-cities-routing.modul
 
 import { MoroccanCitiesPage } from './moroccan-cities.page';
 
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MoroccanCitiesPageRoutingModule
+    MoroccanCitiesPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [MoroccanCitiesPage]
 })

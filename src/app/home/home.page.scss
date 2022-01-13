@@ -1,27 +1,133 @@
-#container {
-  text-align: center;
+ion-toolbar{
+     
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+}  
+ion-title{
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #9bb2b3 ;
+    font-size: 30px;
+    font-weight: 700;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-avatar{
+    align-content: center;
+    margin-bottom: 4%;
+    margin-top: 15%;
+    margin-left: 40%;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-card-title{
+  font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #83c1d4 ;
+    
+    margin-bottom: 5%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+}
+h1{ 
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #83c1d4 ;
+    align-content: center;
+    margin-bottom: 15%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+}
+h6{
+    font-size: 12px;
+     
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+}
+ 
+ion-content{
+    ion-button{
+    color: #eaf0f1 ;
+    border-radius: 70px;
+    
+}
+ion-input{
+    font-size: 15px;
+    --padding-top:20px;
+    --padding-botttom:7px;
+    --padding-start:5px;
+    border-radius: 50px;
+}
 }
 
-#container a {
-  text-decoration: none;
+ion-item{
+    border-radius: 50px;
+    height:55px ;
+    box-shadow: 1px 8px 8px 0px rgba(0,0,0,0.08);
+    --highlight-height:0px;
+
+    ion-input{
+        font-size: 18px;
+        --padding-top:20px;
+        --padding-botttom:7px;
+        --padding-start:5px;
+    }
+
+    a{
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
 }
+      
+
+span{
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+}
+#ion-text-center{
+    font-size: 3px;
+}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       
+  
