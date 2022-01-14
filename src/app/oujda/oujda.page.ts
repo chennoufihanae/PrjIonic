@@ -21,9 +21,14 @@ export class OujdaPage implements OnInit {
   ngOnInit() {
   }
 
+  someOtherMethod(res){
+    const data=res;
+    console.log(res);
+  }
 
 
   async addResv(){
+    let choice;
     const alert= await this.alertCtrl.create({
       header:'Make a Reservation',
       inputs:[
@@ -55,9 +60,11 @@ export class OujdaPage implements OnInit {
         {
           name:'cin',
           placeholder:'Your CIN',
-          type:'number',
-          min: 3,
-          max: 10
+          type:'tel',
+          attributes: {
+            maxlength: 7
+            
+          }
         },
         {
           name:'ville',
@@ -73,6 +80,11 @@ export class OujdaPage implements OnInit {
           min: '2022-01-13',
           max: '2022-01-30'
         },
+        {
+          name:'nbr',
+          placeholder:'Partner number',
+          type:'number'
+        },
       ],
       buttons:[
         {
@@ -82,21 +94,60 @@ export class OujdaPage implements OnInit {
         {
           text:'Add',
           handler:(res)=>{
-            this.dataService.addResv({
-              nom: res.nom,
-              prenom: res.prenom,
-              email:res.email,
-              tel:res.tel,
-              cin:res.cin,
-              ville:res.ville,
-              date:res.date
-
-            })
+            alert.dismiss(true);
+            
+            //this.someOtherMethod(res);
           }
         }
       ]
     });
     await alert.present();
+    await alert.onDidDismiss().then((data) => {
+      choice=data;
+      let b=[];
+      console.log(choice.data.values.nom);
+      this.alertCtrl.create({ 
+         
+        header: 'Your Reservation', 
+        subHeader: 'Verify your information !', 
+        message: "<b>Frist name :</b> "+choice.data.values.nom+"<br>"+
+                 "<b>Last name :</b> "+choice.data.values.prenom+"<br>"+
+                 "<b>Email:</b> "+choice.data.values.email+"<br>"+
+                 "<b>Phone :</b> "+choice.data.values.tel+"<br>"+
+                 "<b>CIN :</b> "+choice.data.values.cin+"<br>"+
+                 "<b>City :</b> "+choice.data.values.ville+"<br>"+
+                 "<b>Date :</b> "+choice.data.values.date+"<br>"+
+                 "<b>nbr :</b> "+choice.data.values.nbr+"<br>", 
+        buttons: [
+          {
+            text:'add',
+            handler:(res)=>{
+              this.dataService.addResv({
+                nom:choice.data.values.nom ,
+                prenom: choice.data.values.prenom,
+                email:choice.data.values.email,
+                tel:choice.data.values.tel,
+                cin:choice.data.values.cin,
+                ville:choice.data.values.ville,
+                date:choice.data.values.date, 
+                nbr:choice.data.values.nbr
+  
+              })
+               
+            }
+          },{
+            text:'Cancel',
+          role:'cancel'
+          }
+        ] 
+          }).then(res => {
+           res.present(); 
+            
+          
+          
+          });
+
+  });
   }
 
 

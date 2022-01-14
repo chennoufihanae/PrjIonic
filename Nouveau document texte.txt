@@ -52,3 +52,63 @@ login
     </div>
     
   </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   handler:(res)=>{
+            this.dataService.addResv({
+              nom: res.nom,
+              prenom: res.prenom,
+              email:res.email,
+              tel:res.tel,
+              cin:res.cin,
+              ville:res.ville,
+              date:res.date
+
+            })
+            .then(res => window.confirm("ok"),res)
+          }
+
+this.dataService.addResv({
+            nom:choice.data.values.nom ,
+            prenom: choice.data.values.prenom,
+            email:choice.data.values.emil,
+            tel:choice.data.values.tel,
+            cin:choice.data.values.cin,
+            ville:choice.data.values.ville,
+            date:choice.data.values.date
+
+          })
+
+
+
+
+
+
+
+ if(
+                choice.data.values.nom == " " ||
+                choice.data.values.prenom == "" ||
+                choice.data.values.email == "" ||
+                choice.data.values.tel == "" ||
+                choice.data.values.cin == "" ||
+                choice.data.values.ville == "" ||
+                choice.data.values.date == "" 
+              ){

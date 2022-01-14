@@ -12,6 +12,7 @@ export interface Res{
   cin:number;
   ville:string;
   date:Date;
+  nbr:Number;
   
 }
 
