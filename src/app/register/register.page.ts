@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private fireauth: AngularFireAuth,
     private router: Router,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastr : ToastController
   ) { }
 
   ngOnInit() {
@@ -23,16 +24,30 @@ export class RegisterPage implements OnInit {
 
   register() {
     this.fireauth.createUserWithEmailAndPassword(this.email, this.password)
-      .then((res) => {
-        if (res.user) {
-          // Register Success
-          this.router.navigate(['home']);
-        }
-      }).catch((err) => {
-        let msg = err.message;
+    .then((res) => {
+      if (res.user) {
+        // Register Success
+        this.toast('Registration Success! ', 'success');
+        this.router.navigate(['home']);
+      }
+    }).catch((err) => {
+      let msg = 'Please fill the form!';
 
-        this.presentAlert("Error", msg);
-      })
+      this.presentAlert("Warning", msg);
+       
+    })
+       
+      
+  }
+
+  async toast(message, status){
+    const toast = await this.toastr.create({
+      message: message,
+      color: status,
+      position: 'top',
+      duration: 2000
+    });
+    toast.present();
   }
 
   async presentAlert(header, msg) {
