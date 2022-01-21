@@ -24,13 +24,22 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-     if(this.email && this.password){
-      this.fireauth.signInWithEmailAndPassword(this.email, this.password);
-      this.router.navigate(['home']);
-       }else{
-        this.toast('Please enter your email & password', 'warning');
-       }
-     
+    this.fireauth.signInWithEmailAndPassword(this.email, this.password)
+      .then((res) => {
+        if (res.user) {
+          // Login Success
+          this.toast('Welcome Home ! ', 'success');
+          this.router.navigate(['home']);
+        }else{
+          
+        }
+      }).catch((err) => {
+       
+        let msg = 'Please fill the form!';
+
+        this.presentAlert("Warning", msg);
+         
+      })
   }
 
   

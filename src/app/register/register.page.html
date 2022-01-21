@@ -10,21 +10,36 @@
 <ion-content class="ion-padding">
   <ion-avatar>
     <img src="../../assets/icon/aa.jpg">
-  </ion-avatar>
+  </ion-avatar> 
   <h1>Complete your informations</h1>
   <br>
-  <ion-item>
-    <ion-input  [(ngModel)]="email" type="email" required placeholder="Email"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
+   <form [formGroup]="registrationForm" (ngSubmit)="submit()">
      
-    <ion-input [(ngModel)]="password" required type="password" placeholder=" Password"></ion-input>
-  </ion-item>
-  <br>
-  <ion-button expand="block" color="secondary"  shape="round" class="ion-margin-vertical" (click)="register()">REGISTER</ion-button>
- 
-  <h6>Already have an account? <span routerLink="/login" routerDirection="forward">Sign-in</span></h6>
+      <ion-item>
+        <ion-input formControlName="email"   required placeholder="Email"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message"> {{error.message}}</small>
+          </ng-container>
+      </div>
+
+      <ion-item>
+         <ion-input formControlName="password"     placeholder=" Password"></ion-input>
+      </ion-item>
+     
+     <div *ngFor="let error of errorMessages.password">
+      <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+        <small class="error-message"> {{error.message}}</small>
+      </ng-container>
+  </div>
+
+     <ion-button   type="submit" expand="block" color="secondary"  shape="round" class="ion-margin-vertical">
+      REGISTER
+       
+     </ion-button>
+     <h6>Already have an account? <span routerLink="/login" routerDirection="forward">Sign-in</span></h6>
+   </form>
 
    
 </ion-content>

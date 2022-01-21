@@ -1,4 +1,6 @@
- 
+ .error-message {
+     color :var(--ion-color-danger)
+ }
  
 ion-title{
     font-family: 'Mochiy Pop P One', sans-serif;
@@ -49,6 +51,8 @@ h6{
 }
 
  
+form{
+
 
 ion-item{
     border-radius: 50px;
@@ -59,7 +63,7 @@ ion-item{
     ion-input{
         font-size: 18px;
         --padding-top:20px;
-        --padding-botttom:3px;
+        --padding-botttom:90px;
         --padding-start:5px;
         --margin-bottom: 7%;
     }
@@ -70,8 +74,8 @@ ion-item{
         text-decoration: none;
     }
 }
-      
-      
+ 
+      }
       
       
       
